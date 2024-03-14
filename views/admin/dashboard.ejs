@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+<body style="background-color: #b6c4b6; color: white;">
+  <div class="container">
+    <div class="row">
+      <h2 class="mb-0 text-center" style="color: #163020; margin-top: 30px;">ADMIN DASHBOARD</h2>
+      <div class="d-flex justify-content-center align-items-center">
+        <div style="margin-top: 30px;">
+          <a href="/admin/home" class="d-inline-block">
+            <button type="button" class="btn btn-outline-dark m-1">Home</button>
+          </a>
+          <a href="/admin/new-user" class="d-inline-block me-2">
+            <button type="button" class="btn btn-outline-dark m-1">Add User</button>
+          </a>
+        </div>
+      </div>
+      <div class="my-4 col-lg-5">
+        <form class="d-flex align-items-center">
+          <input type="text" class="form-control" placeholder="Search by Name or Email" name="search" style="border: 1px solid black;" />
+          <input type="submit" value="Search" class="btn btn-outline-dark m-1" style="margin-left: 30px;" />
+        </form>
+      </div>
+      <div class="container">
+        <table class="table table-bordered table-striped table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+          </tr>
+          <% if(users.length > 0){ for(let i=0; i < users.length; i++){ %>
+          <% const rowClass = i % 8 === 0 ? 'table-primary' : 
+                             i % 8 === 1 ? 'table-secondary' :
+                             i % 8 === 2 ? 'table-success' :
+                             i % 8 === 3 ? 'table-danger' :
+                             i % 8 === 4 ? 'table-warning' :
+                             i % 8 === 5 ? 'table-info' :
+                             i % 8 === 6 ? 'table-light' :
+                             'table-dark'; %>
+          <tr class="<%= rowClass %>">
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td><%= users[i].mobile %></td>
+            <td>
+              <div class="button-container">
+                <a href="/admin/edit-user?id=<%= users[i]._id %>">
+                  <button class="btn btn-outline-success">Edit</button>
+                </a>
+                <a href="/admin/delete-user?id=<%= users[i]._id %>"
+                  onclick="return confirm('Are you sure you want to delete <%= users[i].name %>')"
+                  class="btn btn-outline-danger">
+                  <i class="fas fa-trash-alt"></i> Delete
+                </a>
+              </div>
+            </td>
+          </tr>
+          <% } } else { %>
+          <tr>
+            <td colspan="3">NO USER FOUND</td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  </head>
+
+  <body style="background-color: #1a120b">
+    <div class="col-lg-12 d-flex align-items-stretch justify-content-center">
+      <div class="card w-100">
+        <div class="card-body p-4" style="background-color: #e5e5cb">
+          <h2 class="card-title fw-semibold mb-4 text-center">
+            Welcome <span style="color: tomato"><%= admin.name %></span>
+          </h2>
+          <h5 class="card-title fw-semibold mb-4 text-center">
+            It's great to have you here again!
+          </h5>
+          <div class="text-center mt-4">
+            <a href="/admin/logout" class="btn btn-outline-danger m-1"
+              >Logout</a
+            >
+            <a href="/admin/dashboard" class="btn btn-outline-secondary m-1"
+              >Dashboard</a
+            >
+          </div>
+
+          <div
+            class="table-responsive col-lg-12"
+            style="margin-top: 70px; background-color: #3c2a21">
+            <div class="container mt-5 text-center">
+              <h5
+                class="card-title fw-semibold"
+                style="
+                  margin-bottom: 50px;
+                  text-decoration: underline;
+                  color: #e5e5cb;
+                ">
+                Admin Details
+              </h5>
+
+              <table class="table text-nowrap mb-0 align-middle">
+                <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Name</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Email ID</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Mobile Number</h6>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border-bottom-0">
+                      <p class="mb-0 fw-normal"><%= admin.name %></p>
+                    </td>
+                    <td class="border-bottom-0">
+                      <p class="mb-0 fw-normal"><%= admin.email %></p>
+                    </td>
+                    <td class="border-bottom-0">
+                      <p class="mb-0 fw-normal"><%= admin.mobile %></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

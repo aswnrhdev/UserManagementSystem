@@ -1,0 +1,74 @@
+<% include('../layouts/header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMS</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  </head>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center align-items-center">
+          <div>
+            <h3 style="margin-top: 30px; text-align: center">
+              Welcome <%= user.name %>
+            </h3>
+            <p>Your presence enriches our UMS platform. Thanks!</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="/logout" class="btn btn-outline-danger m-1">Logout</a>
+          <a href="/edit?id=<%= user._id%>" class="btn btn-outline-success m-1"
+            >Edit</a
+          >
+        </div>
+
+        <div class="container col-lg-9" style="margin-top: 30px">
+          <h5
+            style="
+              text-align: center;
+              text-decoration: underline;
+              margin-bottom: 20px;
+            ">
+            User Details
+          </h5>
+          <table class="table table-bordered table-striped table-hover">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><%= user.name %></td>
+              </tr>
+              <tr>
+                <td>Email ID</td>
+                <td><%= user.email %></td>
+              </tr>
+              <tr>
+                <td>Mobile Number</td>
+                <td><%= user.mobile %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous" />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</html>
+<% include('../layouts/footer.ejs') %>
